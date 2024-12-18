@@ -1,0 +1,7 @@
+The data in this directory is taken from SPICE (https://www.nature.com/articles/s41597-022-01882-6)
+
+/data contains the h5 subset of data used to train the model, the data is in atomic units but converted to eV/A in the dataloader
+/dipeptides contains the dataloader for the h5 file and "model", which is a shorthand for defining the CACE model used in this example
+/models contains checkpoints of the trained models used to make the figures
+figures.ipynb contains the code used to make the figures for the paper
+fit-dipeptides.py contains the training script used to train the models
