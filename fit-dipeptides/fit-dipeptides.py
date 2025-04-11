@@ -13,8 +13,8 @@ else:
     logs_name += "_sr"
 cutoff = 4.0
 batch_size = 4
-from dipeptides.data import SpiceData
-data = SpiceData(root,cutoff,batch_size=batch_size,in_memory=True,valid_p=0.1,test_p=0)
+from dipeptides.data import XYZData
+data = XYZData(batch_size=batch_size,cutoff=cutoff)
 
 from cace.representations import Cace
 from cace.modules import BesselRBF, GaussianRBF, GaussianRBFCentered
