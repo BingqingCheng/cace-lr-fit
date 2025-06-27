@@ -20,12 +20,11 @@ class XYZDataset(Dataset):
         self.prepare_data()
     
     def prepare_data(self):
-        dataset = cace.tasks.get_dataset_from_xyz(self.root,valid_fraction=1e-10,cutoff=self.cutoff)
-        data_key = [k for k in dataset.train[0].arrays if k not in ["numbers"]]
-        data_key += [k for k in dataset.train[0].info]
+        atms = ase.io.read(self.root,index=":")
+        data_key = [k for k in atms[0].arrays if k not in ["numbers"]]
+        data_key += [k for k in atms[0].info]
         data_key = {k : k for k in data_key}
-        dataset = [AtomicData.from_atoms(a,cutoff=self.cutoff,data_key=data_key) for a in dataset.train]
-        # print(AtomicData.from_atoms(dataset,cutoff=self.cutoff))
+        dataset = [AtomicData.from_atoms(a,cutoff=self.cutoff,data_key=data_key) for a in atms]
         self.dataset = dataset
 
     def len(self):
@@ -35,12 +34,13 @@ class XYZDataset(Dataset):
         return self.dataset[idx]
 
 class XYZData(L.LightningDataModule):
-    def __init__(self, train_xyz="data/spice-dipep-dipolar_train.xyz",val_xyz="data/spice-dipep-dipolar_val.xyz", 
-                 cutoff=4.0, in_memory=False, drop_last=True, batch_size=4):
+    def __init__(self, train_xyz="data/spice-dipep-dipolar_train.xyz",val_xyz="data/spice-dipep-dipolar_val.xyz",test_xyz="data/spice-dipep-dipolar_test.xyz",
+                 cutoff=4.0, in_memory=False, drop_last=True, batch_size=1):
         super().__init__()
         self.batch_size = batch_size
         self.train_xyz = train_xyz
         self.val_xyz = val_xyz
+        self.test_xyz = test_xyz
         self.drop_last = drop_last
         self.cutoff = cutoff
         try:
@@ -52,6 +52,7 @@ class XYZData(L.LightningDataModule):
     def prepare_data(self):
         self.train = XYZDataset(self.train_xyz,cutoff=self.cutoff)
         self.val = XYZDataset(self.val_xyz,cutoff=self.cutoff)
+        self.test = XYZDataset(self.test_xyz,cutoff=self.cutoff)
         
     def train_dataloader(self):
         train_loader = DataLoader(self.train, batch_size=self.batch_size, drop_last=self.drop_last,
@@ -62,3 +63,9 @@ class XYZData(L.LightningDataModule):
         val_loader = DataLoader(self.val, batch_size=self.batch_size, drop_last=False,
                                 shuffle=False, num_workers = self.num_cpus)
         return val_loader
+
+    def test_dataloader(self):
+        test_loader = DataLoader(self.test, batch_size=self.batch_size, drop_last=False,
+                                shuffle=False, num_workers = self.num_cpus)
+        return test_loader
+
