@@ -9,6 +9,7 @@ For comparison, the previous implementation uses two autograd operations to obta
 The elimination of one autograd operation significantly reduces computational cost.
 
 An example of the new training script can be found in 'fit-water-timing'
+Training data for pt-KF-aq is from [https://doi.org/10.1103/48ct-3jxm]
 
 Note: University of California, Berkeley has filed a provisional patent for the Latent Ewald Summation algorithm. No restriction on academic use.
 
