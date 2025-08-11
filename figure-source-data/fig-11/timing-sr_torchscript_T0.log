@@ -1,0 +1,13 @@
+!!! System_size[atom]: 768 Time_taken[seconds]: 3.7081921100616455 MD_step/[s]: 26.967319
+!!! System_size[atom]: 1536 Time_taken[seconds]: 5.859706401824951 MD_step/[s]: 17.065701
+!!! System_size[atom]: 3072 Time_taken[seconds]: 10.279124736785889 MD_step/[s]: 9.728455
+!!! System_size[atom]: 6144 Time_taken[seconds]: 21.495997667312622 MD_step/[s]: 4.652029
+!!! System_size[atom]: 9216 Time_taken[seconds]: 34.67400550842285 MD_step/[s]: 2.884005
+!!! System_size[atom]: 12288 Time_taken[seconds]: 46.679163694381714 MD_step/[s]: 2.142283
+!!! System_size[atom]: 15360 Time_taken[seconds]: 59.101359128952026 MD_step/[s]: 1.692008
+!!! System_size[atom]: 18432 Time_taken[seconds]: 75.02866387367249 MD_step/[s]: 1.332824
+!!! System_size[atom]: 24576 Time_taken[seconds]: 103.39007806777954 MD_step/[s]: 0.967211
+!!! System_size[atom]: 27648 Time_taken[seconds]: 116.76028966903687 MD_step/[s]: 0.856456
+!!! System_size[atom]: 30720 Time_taken[seconds]: 131.8018217086792 MD_step/[s]: 0.758715
+!!! System_size[atom]: 34560 Time_taken[seconds]: 149.3437111377716 MD_step/[s]: 0.669596
+!!! System_size[atom]: 38400 Time_taken[seconds]: 169.13857913017273 MD_step/[s]: 0.591231

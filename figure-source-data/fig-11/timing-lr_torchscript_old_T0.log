@@ -1,0 +1,5 @@
+!!! System_size[atom]: 768 Time_taken[seconds]: 6.630801677703857 MD_step/[s]: 15.081133
+!!! System_size[atom]: 1536 Time_taken[seconds]: 9.73174262046814 MD_step/[s]: 10.275652
+!!! System_size[atom]: 3072 Time_taken[seconds]: 16.81923747062683 MD_step/[s]: 5.945573
+!!! System_size[atom]: 6144 Time_taken[seconds]: 36.39373230934143 MD_step/[s]: 2.747726
+!!! System_size[atom]: 9216 Time_taken[seconds]: 62.36020588874817 MD_step/[s]: 1.603587
